@@ -49,7 +49,7 @@ public class Java8Demo {
         System.out.println(res2);
 
         // Consumer
-        Consumer<Integer> print = x -> System.out.println(x);
+        Consumer<Integer> print = (x) -> {System.out.println(x);};
         print.accept(51);
         List<Integer> list = Arrays.asList(1, 2, 3);
         Consumer<List<Integer>> printList = x -> {
@@ -90,6 +90,13 @@ public class Java8Demo {
 
         // Method reference --> use method without invoking & in place of lambda expression
         List<String> students = Arrays.asList("Ram", "Shyam", "Ghanshyam");
+        // // using annoymous class
+        // students.forEach(new Consumer<String>() {
+        //     @Override
+        //     public void accept(String s) {
+        //     System.out.println(s);
+        //     }
+        // });
         students.forEach(x -> System.out.println(x));
         students.forEach(System.out::println);
 
